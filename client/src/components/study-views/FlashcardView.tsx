@@ -56,19 +56,19 @@ export default function FlashcardView({ section }: FlashcardViewProps) {
       </div>
 
       <div
-        className="h-80 cursor-pointer"
+        className="min-h-80 cursor-pointer"
         onClick={() => setIsFlipped(!isFlipped)}
       >
         <Card
-          className={`h-full p-8 flex items-center justify-center transition-all transform duration-300 ${
+          className={`min-h-80 p-6 sm:p-8 flex items-center justify-center transition-all transform duration-300 ${
             isFlipped ? 'bg-accent/8 border-accent/30' : 'bg-primary/8 border-primary/30'
           }`}
         >
-          <div className="text-center">
+          <div className="text-center max-h-72 overflow-y-auto">
             <p className="text-xs font-semibold text-muted-foreground mb-4 uppercase tracking-wider">
               {isFlipped ? '답변' : '질문'}
             </p>
-            <p className="text-xl font-semibold text-foreground leading-relaxed">
+            <p className="text-base sm:text-lg font-semibold text-foreground leading-relaxed">
               {isFlipped ? current.answer : current.question}
             </p>
             <p className="text-xs text-muted-foreground mt-8">클릭하여 뒤집기</p>
