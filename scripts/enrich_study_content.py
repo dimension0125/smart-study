@@ -507,7 +507,9 @@ def main():
     data = json.loads(CONTENT.read_text(encoding="utf-8"))
     for chapter in data["chapters"]:
         for section in chapter["sections"]:
-            update = SECTION_UPDATES[section["id"]]
+            update = SECTION_UPDATES.get(section["id"])
+            if update is None:
+                continue
             section["summary"] = update["summary"]
             section["concept"] = update["concept"]
             section["memorize"] = update["memorize"]
